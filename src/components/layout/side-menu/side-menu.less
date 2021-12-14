@@ -1,0 +1,36 @@
+//全局变量
+@import "../../../assets/styles/variable";
+
+.side-menu-wrapper {
+  user-select: none;
+  height: 100%;
+  background-color: @menuBgColor !important;
+
+  .menu-scrollbar {
+    height: ~"calc(100% - 60px)";
+    top: 60px;
+
+    .el-scrollbar__wrap {
+      overflow-x: hidden;
+    }
+  }
+
+  .menu-root {
+    height: ~"calc(100% - 60px)";
+    border-right: 0;
+
+    & .nest-menu .el-sub-menu > .el-sub-menu__title,
+    & .el-sub-menu .el-menu-item {
+      background-color: @menuSubMenuAndItemBgColor !important;
+
+      &:hover {
+        background-color: @menuSubMenuAndItemHoverColor !important;
+      }
+    }
+  }
+
+  .menu-root:not(.el-menu--collapse) {
+    width: 220px;
+  }
+
+}
