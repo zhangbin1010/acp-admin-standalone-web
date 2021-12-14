@@ -87,18 +87,6 @@ export default {
     mainHeight() {
       return this.$store.state.app.mainHeight
     },
-    showDeploy() {
-      return this.$store.state.app.user.userInfo.levels <= 0
-    },
-    showRouteConfig() {
-      return this.$store.state.app.user.userInfo.levels <= 0
-    },
-    showRouteLog() {
-      return this.$store.state.app.user.userInfo.levels <= 0
-    },
-    showLogFile() {
-      return this.$store.state.app.user.userInfo.levels <= 0
-    },
     theme() {
       return this.$store.state.app.appInfo.theme
     },
