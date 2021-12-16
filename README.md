@@ -13,11 +13,11 @@
 - Edge（完全支持）
 
 ## 简介
-> 该版本是acp-admin的单机版前端，cloud版本请查看[这里](https://github.com/zhangbin1010/acp-admin)
+> 该版本是acp-admin的单机版前端，cloud版本请查看[这里](https://github.com/zhangbinhub/acp-admin)
 
 > 使用vue全家桶(Vue+Vue-router+Vuex+axios)、ElementUI样式库构建的前端项目。该项目是前后端分离架构中的“前端部分” 。后端工程[V1.0.0](https://github.com/zhangbin1010/acp-admin-standalone)
 
-> 系统仍持续完善和优化中，数据初始化及后端数据结构请参看[后端工程](https://github.com/zhangbin1010/acp-admin-standalone)
+> 系统仍持续完善和优化中，数据初始化及后端数据结构请参看[后端工程](https://github.com/zhangbinhub/acp-admin-standalone)
 
 ## 相关组件官方文档
 
