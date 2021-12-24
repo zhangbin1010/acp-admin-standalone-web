@@ -122,7 +122,7 @@
                    v-model:current-page="searchForm.currPage"
                    :page-sizes="searchForm.pageSizeArray"
                    v-model:page-size="searchForm.pageSize"
-                   layout="total, sizes, prev, pager, next, jumper"
+                   :layout="isMobile?'prev, pager, next':'total, sizes, prev, pager, next, jumper'"
                    :total="searchForm.totalRows">
     </el-pagination>
     <el-dialog v-model="addModal" :title="$t('forms.buttons.add')" :close-on-click-modal="false">
@@ -161,6 +161,7 @@
   </el-card>
 </template>
 <script>
+import {isMobile} from '@/libs/tools'
 import {nextTick} from "vue";
 
 export default {
@@ -210,6 +211,9 @@ export default {
     }
   },
   computed: {
+    isMobile() {
+      return isMobile()
+    },
     tableHeight() {
       const minHeight = 300
       const height = this.$store.state.app.mainHeight - 80 - 46 - 42 - 4
