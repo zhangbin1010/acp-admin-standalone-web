@@ -21,12 +21,12 @@
           </header-bar>
         </el-header>
         <el-container>
-          <el-header style="padding: 0;height: 33px">
+          <el-header :style="isMobile?{padding: 0,height: '59px'}:{padding: 0,height: '33px'}">
             <tags-nav :full-path="fullPath" :menu-list="menuList" :list="tagNavList"
                       @update:modelValue="handleClick" @on-close="handleCloseTag"/>
           </el-header>
           <el-scrollbar ref="main-scrollbar" class="main-scrollbar" :style="{height:mainHeight+'px'}">
-            <el-main class="main-content">
+            <el-main class="main-content" :class="{mobile:isMobile}">
               <router-view v-slot="{ Component }">
                 <transition name="el-fade-in" mode="out-in" appear>
                   <keep-alive :include="cacheList">
@@ -55,7 +55,7 @@ import Fullscreen from './fullscreen'
 import Language from './language'
 import './Home.less'
 import {
-  getOpenedNamesByActiveName,
+  getOpenedNamesByActiveName, isMobile,
   updateTagNavList
 } from '@/libs/tools'
 
@@ -99,11 +99,14 @@ export default {
     isMini() {
       return this.$store.state.app.isMini
     },
+    isMobile() {
+      return isMobile()
+    },
     minLogo() {
-      return require('@/assets/images/logo/logo.png').default
+      return require('@/assets/images/logo/logo.png')
     },
     mainLogo() {
-      return require('@/assets/images/logo/logo-main-' + this.$store.state.app.appInfo.theme + '.png').default
+      return require('@/assets/images/logo/logo-main-' + this.$store.state.app.appInfo.theme + '.png')
     },
     tagNavList() {
       return this.$store.state.app.tagNavList

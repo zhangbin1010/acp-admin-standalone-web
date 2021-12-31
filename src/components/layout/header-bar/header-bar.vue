@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     minLogo() {
-      return require('@/assets/images/logo/logo.png').default
+      return require('@/assets/images/logo/logo.png')
     }
   },
   methods: {
