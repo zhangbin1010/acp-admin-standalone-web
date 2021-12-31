@@ -17,7 +17,8 @@
                       :mini="isMini" @on-coll-change="handleCollapsedChange">
             <user :user-avatar="userAvatar" :customer-name="userName"/>
             <language :lang="localLang"/>
-            <fullscreen v-model="isFullscreen"/>
+            <fullscreen v-model="isFullscreen" :is-mobile="isMobile"/>
+            <home-button :is-mobile="isMobile"/>
           </header-bar>
         </el-header>
         <el-container>
@@ -51,6 +52,7 @@ import SideMenu from './side-menu'
 import HeaderBar from './header-bar'
 import TagsNav from './tags-nav'
 import User from './user'
+import homeButton from './home-button'
 import Fullscreen from './fullscreen'
 import Language from './language'
 import './Home.less'
@@ -66,6 +68,7 @@ export default {
     HeaderBar,
     Language,
     TagsNav,
+    homeButton,
     Fullscreen,
     User
   },
