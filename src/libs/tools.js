@@ -174,7 +174,7 @@ export const buildRouteParams = (params) => {
 /**
  * 获取路由参数原始对象
  * @param route 路由对象
- * @returns {}
+ * @returns  params 原始对象
  */
 export const getRouteParams = (route) => {
   let params = {}
