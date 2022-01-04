@@ -158,6 +158,11 @@ export const updateTagNavList = (tagNavList, menuList, route) => {
   }
 }
 
+/**
+ * 构建路由参数对象，用于路由处理
+ * @param params 原始对象
+ * @returns {{value: string}|{}}
+ */
 export const buildRouteParams = (params) => {
   if (params && Object.keys(params).length > 0) {
     return {value: JSON.stringify(params)}
@@ -166,6 +171,11 @@ export const buildRouteParams = (params) => {
   }
 }
 
+/**
+ * 获取路由参数原始对象
+ * @param route 路由对象
+ * @returns {}
+ */
 export const getRouteParams = (route) => {
   let params = {}
   if (route.params && route.params.value && typeof route.params.value === 'string') {
