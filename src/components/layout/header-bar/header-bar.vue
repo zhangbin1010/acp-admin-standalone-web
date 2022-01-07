@@ -8,6 +8,7 @@
     <div class="custom-content-con">
       <slot/>
     </div>
+  </div>
 </template>
 <script>
 import siderTrigger from './sider-trigger'
