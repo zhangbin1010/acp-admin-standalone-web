@@ -1,13 +1,15 @@
+import {isMobileDevice} from "@/libs/tools";
+
 export default {
   appName: 'Acp-Admin',
   appVersion: '1.0.0',
   copyright: 'Copyright © 2019 by ZhangBin',
   theme: 'dark',
   minWidth: 768,
-  routeBase: '/admin',
+  routeBase: './',
   homePath: '/index',
   cookieExpires: 1, // day
-  baseURL: '/v1/api', // back server url
+  baseURL: './v1/api', // back server url
   timeOut: 60000,
   passwordComplexityPolicy: 'PASSWORD_COMPLEXITY_POLICY',
 
