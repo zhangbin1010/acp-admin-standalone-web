@@ -12,19 +12,22 @@
         </side-menu>
       </el-aside>
       <el-container style="width: 100%">
-        <el-header style="padding: 0;height: 60px">
+        <el-header style="padding: 0;">
           <header-bar :collapsed="isCollapsed" :full-path="fullPath" :menu-list="menuList"
                       :mini="isMini" @on-coll-change="handleCollapsedChange">
             <user :user-avatar="userAvatar" :customer-name="userName"/>
-            <language :lang="localLang"/>
             <fullscreen v-model="isFullscreen" :is-mobile="isMobile"/>
             <home-button :is-mobile="isMobile"/>
           </header-bar>
         </el-header>
         <el-container>
-          <el-header :style="isMobile?{padding: 0,height: '59px'}:{padding: 0,height: '33px'}">
+          <el-header style="padding: 0;height: auto;">
             <tags-nav :full-path="fullPath" :menu-list="menuList" :list="tagNavList"
                       @update:modelValue="handleClick" @on-close="handleCloseTag"/>
+            <side-menu :accordion="true" :active-name="fullPath" :collapsed="isCollapsed" v-show="isMobile"
+                       :is-mobile="isMobile" @on-select="handleClick" :menu-list="menuList" :open-names="openedNames"
+                       :theme="theme">
+            </side-menu>
           </el-header>
           <el-scrollbar ref="mainScrollbar" class="main-scrollbar" :style="{height:mainHeight+'px'}">
             <el-main class="main-content" :class="{mobile:isMobile}">
@@ -54,7 +57,6 @@ import TagsNav from './tags-nav'
 import User from './user'
 import homeButton from './home-button'
 import Fullscreen from './fullscreen'
-import Language from './language'
 import './Home.less'
 import {
   getOpenedNamesByActiveName, isMobileDevice,
@@ -66,7 +68,6 @@ export default {
   components: {
     SideMenu,
     HeaderBar,
-    Language,
     TagsNav,
     homeButton,
     Fullscreen,
@@ -125,9 +126,6 @@ export default {
     },
     menuList() {
       return this.$store.state.app.user.menuList
-    },
-    localLang() {
-      return this.$store.state.app.lang.lang
     },
     localLangMessage() {
       return this.$store.state.app.lang.langMessages[this.$store.state.app.lang.lang]
