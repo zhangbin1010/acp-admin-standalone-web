@@ -1,8 +1,8 @@
 <template>
   <el-config-provider :locale="localLangMessage">
     <el-container style="height: 100%" :class="`home home-${theme}`">
-      <el-aside width="auto" :style="{overflow: 'hidden'}">
-        <side-menu :accordion="true" :active-name="fullPath" :collapsed="isCollapsed"
+      <el-aside width="auto" :style="{overflow: 'hidden'}" v-show="!isMobile">
+        <side-menu :accordion="true" :active-name="fullPath" :collapsed="isCollapsed" :is-mobile="isMobile"
                    @on-select="handleClick" :menu-list="menuList" :open-names="openedNames" :theme="theme"
                    :class="{'menu-container':true,'collapsed':isCollapsed}">
           <div :class="{'logo-con':true,'collapsed':isCollapsed}">
@@ -14,7 +14,7 @@
       <el-container style="width: 100%">
         <el-header style="padding: 0;">
           <header-bar :collapsed="isCollapsed" :full-path="fullPath" :menu-list="menuList"
-                      :mini="isMini" @on-coll-change="handleCollapsedChange">
+                      :mini="isMini" :is-mobile="isMobile" @on-coll-change="handleCollapsedChange">
             <user :user-avatar="userAvatar" :customer-name="userName"/>
             <fullscreen v-model="isFullscreen" :is-mobile="isMobile"/>
             <home-button :is-mobile="isMobile"/>
@@ -22,7 +22,7 @@
         </el-header>
         <el-container>
           <el-header style="padding: 0;height: auto;">
-            <tags-nav :full-path="fullPath" :menu-list="menuList" :list="tagNavList"
+            <tags-nav :full-path="fullPath" :menu-list="menuList" :list="tagNavList" v-show="!isMobile"
                       @update:modelValue="handleClick" @on-close="handleCloseTag"/>
             <side-menu :accordion="true" :active-name="fullPath" :collapsed="isCollapsed" v-show="isMobile"
                        :is-mobile="isMobile" @on-select="handleClick" :menu-list="menuList" :open-names="openedNames"
