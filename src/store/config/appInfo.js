@@ -1,5 +1,3 @@
-import {isMobileDevice} from "@/libs/tools";
-
 export default {
   appName: 'Acp-Admin',
   appVersion: '1.0.0',
