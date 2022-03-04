@@ -1,12 +1,13 @@
 # acp-admin-standalone-web
 
-###### v1.0.0 [版本更新日志](doc/version_history.md)
+###### v1.0.1 [版本更新日志](doc/version_history.md)
 
 ## 浏览器兼容性
 
 由于js-base64 3.0及以上版本不再支持IE，因此从4.2.0开始不再支持IE
 
 支持的浏览器：
+
 - Chrome latest（推荐，完美）
 - Firefox latest（完全支持）
 - Edge（完全支持）
@@ -16,9 +17,7 @@
 该版本是acp-admin的单机版前端，cloud版本请查看[这里](https://github.com/zhangbinhub/acp-admin)
 
 使用vue全家桶(Vue+Vue-router+Vuex+axios)、ElementUI样式库构建的前端项目。该项目是前后端分离架构中的“前端部分”
-。后端工程[V1.0.0](https://github.com/zhangbinhub/acp-admin-standalone)
-
-系统仍持续完善和优化中，数据初始化及后端数据结构请参看[后端工程](https://github.com/zhangbinhub/acp-admin-standalone)
+。[后端工程](https://github.com/zhangbinhub/acp-admin-standalone)
 
 ## 相关组件官方文档
 
@@ -76,6 +75,7 @@ node -v
 ```
 
 ##### （二）设置淘宝 npm 镜像
+
 ```bash
 npm config set registry https://registry.npm.taobao.org
 ```
