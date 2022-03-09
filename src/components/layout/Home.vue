@@ -1,45 +1,43 @@
 <template>
-  <el-config-provider :locale="localLangMessage">
-    <el-container :class="`home home-${theme}`">
-      <el-header>
-        <header-bar :full-path="fullPath" :is-mobile="isMobile" :menu-list="menuList" :mini="isMini">
-          <user :customer-name="userName" :user-avatar="userAvatar"/>
-        </header-bar>
-      </el-header>
-      <el-container class="home-content">
-        <el-aside v-show="!isMobile">
-          <side-menu :accordion="true" :active-name="fullPath" :class="{'menu-container':true,'collapsed':isCollapsed}"
-                     :collapsed="isCollapsed"
-                     :is-mobile="isMobile" :menu-list="menuList" :open-names="openedNames"
-                     :theme="theme" @on-select="handleClick"/>
-        </el-aside>
-        <el-container :class="{mobile:isMobile}">
-          <el-header>
-            <tags-nav v-show="!isMobile" :full-path="fullPath" :list="tagNavList" :menu-list="menuList"
-                      @update:modelValue="handleClick" @on-close="handleCloseTag"/>
-            <side-menu v-show="isMobile" :accordion="true" :active-name="fullPath" :collapsed="isCollapsed"
-                       :is-mobile="isMobile" :menu-list="menuList" :open-names="openedNames" :theme="theme"
-                       @on-select="handleClick"/>
-          </el-header>
-          <el-scrollbar ref="mainScrollbar" class="main-scrollbar">
-            <el-main class="main-content">
-              <router-view v-slot="{ Component }">
-                <transition appear mode="out-in" name="el-fade-in">
-                  <keep-alive :include="cacheList">
-                    <component :is="Component"/>
-                  </keep-alive>
-                </transition>
-              </router-view>
-            </el-main>
-            <el-backtop :visibility-height="100" target=".main-scrollbar .el-scrollbar__wrap"/>
-          </el-scrollbar>
-          <el-footer class="foot-content">
-            <small style="text-align: center;">{{ copyright }}</small>
-          </el-footer>
-        </el-container>
+  <el-container :class="`home home-${theme}`">
+    <el-header>
+      <header-bar :full-path="fullPath" :is-mobile="isMobile" :menu-list="menuList" :mini="isMini">
+        <user :customer-name="userName" :user-avatar="userAvatar"/>
+      </header-bar>
+    </el-header>
+    <el-container class="home-content">
+      <el-aside v-show="!isMobile">
+        <side-menu :accordion="true" :active-name="fullPath" :class="{'menu-container':true,'collapsed':isCollapsed}"
+                   :collapsed="isCollapsed"
+                   :is-mobile="isMobile" :menu-list="menuList" :open-names="openedNames"
+                   :theme="theme" @on-select="handleClick"/>
+      </el-aside>
+      <el-container :class="{mobile:isMobile}">
+        <el-header>
+          <tags-nav v-show="!isMobile" :full-path="fullPath" :list="tagNavList" :menu-list="menuList"
+                    @update:modelValue="handleClick" @on-close="handleCloseTag"/>
+          <side-menu v-show="isMobile" :accordion="true" :active-name="fullPath" :collapsed="isCollapsed"
+                     :is-mobile="isMobile" :menu-list="menuList" :open-names="openedNames" :theme="theme"
+                     @on-select="handleClick"/>
+        </el-header>
+        <el-scrollbar ref="mainScrollbar" class="main-scrollbar">
+          <el-main class="main-content">
+            <router-view v-slot="{ Component }">
+              <transition appear mode="out-in" name="el-fade-in">
+                <keep-alive :include="cacheList">
+                  <component :is="Component"/>
+                </keep-alive>
+              </transition>
+            </router-view>
+          </el-main>
+          <el-backtop :visibility-height="100" target=".main-scrollbar .el-scrollbar__wrap"/>
+        </el-scrollbar>
+        <el-footer class="foot-content">
+          <small style="text-align: center;">{{ copyright }}</small>
+        </el-footer>
       </el-container>
     </el-container>
-  </el-config-provider>
+  </el-container>
 </template>
 <script>
 import {nextTick, ref} from 'vue'
@@ -101,9 +99,6 @@ export default {
     },
     menuList() {
       return this.$store.state.app.user.menuList
-    },
-    localLangMessage() {
-      return this.$store.state.app.lang.langMessages[this.$store.state.app.lang.lang]
     }
   },
   watch: {
