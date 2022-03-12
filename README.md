@@ -1,5 +1,7 @@
 # acp-admin-standalone-web
 
+**此项目已不再更新，由于某些不可抗因素，已转移至https://gitee.com/zhangbinhub/acp-admin-standalone-web**
+
 ###### v1.0.1 [版本更新日志](doc/version_history.md)
 
 ## 浏览器兼容性
